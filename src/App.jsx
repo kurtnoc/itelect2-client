@@ -3,8 +3,7 @@ import TaskList from "./components/TaskList.jsx";
 import TaskForm from "./components/TaskForm.jsx";
 import "./App.css";
 
-// GT13: the tasks are typed in here, in the browser.
-// Session 14 replaces this array with GET /api/tasks.
+// GT13:
 const STARTING_TASKS = [
   { id: 1, title: "Set up project repo", dueDate: "2026-08-20" },
   { id: 2, title: "Wire up associations", dueDate: "2026-08-24" },

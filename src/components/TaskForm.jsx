@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// One text box and a button. The list itself lives in App.jsx,
-// so this form hands the typed title to App through onAdd.
 function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
 
