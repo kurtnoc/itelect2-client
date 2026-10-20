@@ -1,5 +1,3 @@
-// Draws one <li> per task. It only reads the list it is given;
-// it never changes it.
 function TaskList({ tasks }) {
   return (
     <ul className="task-list">
