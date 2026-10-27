@@ -2,13 +2,22 @@ import { useState } from "react";
 
 function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [error, setError] = useState("");
 
-  function handleSubmit(e) {
+    
+  async function handleSubmit(e) {
     e.preventDefault();
     const trimmed = title.trim();
     if (trimmed === "") return;
-    onAdd(trimmed);
-    setTitle("");
+    try {
+      await onAdd(trimmed, dueDate);
+      setTitle("");
+      setDueDate("");
+      setError("");
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   return (
@@ -18,7 +27,13 @@ function TaskForm({ onAdd }) {
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title of a new task"
       />
+      <input
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
+      />
       <button type="submit">Add task</button>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 }
